@@ -18,12 +18,21 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: white;
+
+  color: black;
+}
+
+input,
+select,
+button {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+#result p:first-of-type {
+  background-color: yellow;
+  width: fit-content;
 }
 
 @layer utilities {
