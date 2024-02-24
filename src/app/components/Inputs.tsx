@@ -31,8 +31,19 @@ const Inputs = () => {
     data.features.forEach((element: any) => {
       htmlToDisplay = htmlToDisplay + `<p>-  ${element.place_name}</p>`;
     });
-
+    htmlToDisplay = htmlToDisplay + `<div id="map" class="h-96 w-full"></div>`;
     result.innerHTML = htmlToDisplay;
+
+    // insert the map with the first result
+    const coordinates = data.features[0].center;
+    const map = new mapboxgl.Map({
+      container: "map",
+      style: "mapbox://styles/mapbox/streets-v11",
+      center: coordinates,
+      zoom: 12,
+    });
+    // set the marker in the center of the map
+    const marker = new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
   }
 
   return (
